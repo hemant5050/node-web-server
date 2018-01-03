@@ -15,7 +15,7 @@ hbs.registerHelper('getCurrentYear', () => {
 app.use((req, res, next) => {
     let data = `${(new Date()).toString()} : ${req.method} : ${req.ips}`;
     fs.appendFile('append.log',  data + '\n' ,(err) => {
-        console.log(err);
+        
     })
     next();
 })
@@ -31,6 +31,12 @@ app.get('/', (request, response) => {
 app.get('/about', (request, response) => {
    response.render('about.hbs', {
        pageTitle: 'About Page'
+   }) 
+});
+
+app.get('/project', (request, response) => {
+   response.render('project.hbs', {
+       pageTitle: 'Project Page'
    }) 
 });
 
